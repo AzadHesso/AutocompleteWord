@@ -91,5 +91,19 @@ TrieNode* removeWord(TrieNode* root, std::string key, int depth)
     return root;
 }
 
+// Функция проверки наличия слова в Trie
+bool search(TrieNode* root, const std::string& key)
+{
+    TrieNode* node = root;
+    for (char c : key) {
+        int index = c - 'a';
+        if (!node->children[index])
+            return false;
+        node = node->children[index];
+    }
+
+    return (node != nullptr && node->isEndOfWord);
+}
+
 
 
