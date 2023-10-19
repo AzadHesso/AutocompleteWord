@@ -105,5 +105,21 @@ bool search(TrieNode* root, const std::string& key)
     return (node != nullptr && node->isEndOfWord);
 }
 
+// Функция заполнения вектора всеми словами в Trie, начинающимися с заданного префикса
+void fillVector(TrieNode* root, std::vector<std::string>& result, char buf[], int index)
+{
+    if (root->isEndOfWord) {
+        buf[index] = '\0';
+        result.push_back(std::string(buf));
+    }
+
+    for (int i = 0; i < ALPHABET_SIZE; i++) {
+        if (root->children[i]) {
+            buf[index] = i + 'a';
+            fillVector(root->children[i], result, buf, index + 1);
+        }
+    }
+}
+
 
 
