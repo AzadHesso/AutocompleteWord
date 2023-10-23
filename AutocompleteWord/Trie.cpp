@@ -121,5 +121,32 @@ void fillVector(TrieNode* root, std::vector<std::string>& result, char buf[], in
     }
 }
 
+// Функция получения всех слов в Trie, начинающихся с заданного префикса
+std::vector<std::string> getAllWordsByPrefix(TrieNode* root, const std::string& prefix)
+{
+    std::vector<std::string> result;
+    if (!root)
+        return result;
+
+    TrieNode* node = root;
+    char buf[ALPHABET_SIZE] = {};
+    int ind = 0;
+    
+    // Поиск узла, соответствующего заданному префиксу
+    for (int i = 0; i < prefix.length(); i++) {
+        int index = prefix[i] - 'a';
+        buf[ind] = prefix[i];
+        ind++;
+        if (!node->children[index])
+            return result;
+
+        node = node->children[index];
+    }
+
+    fillVector(node, result, buf, ind);
+
+    return result;
+}
+
 
 
