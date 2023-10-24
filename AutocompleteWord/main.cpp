@@ -26,4 +26,23 @@ int main() {
 		std::cout << "\t" << word << " " << "\n";
 	   }
 
+	std::string word;
+	std::cout << "Введите слово для добавления в словарь\n (Введите пустую строку для завершения ввода):\n";
+		do {
+			getline(std::cin, word);
+			if (word.size() > 0) {
+				addWord(root, word);
+			}
+		} while (word.size() > 0);
+     
+    std::cout << "Введите слово для удаления из словаря\n (Введите пустую строку для завершения ввода):\n";
+	do {
+		getline(std::cin, word);
+		if (word.size() > 0) {
+			removeWord(root, word);
+		}
+	} while (word.size() > 0);
+		 
+
 }
+
