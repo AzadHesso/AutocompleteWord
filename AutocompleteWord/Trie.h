@@ -15,7 +15,7 @@ TrieNode* getNewTrieNode();
 void addWord(TrieNode* root, const std::string& key);
 void getAllWords(TrieNode* node, std::string prefix, std::vector<std::string>& words);
 bool isTrieEmpty(TrieNode* root);
-TrieNode* removeWord(TrieNode* root, std::string key, int depth = 0);
+TrieNode* removeWord(TrieNode* root, const std::string& key, int depth = 0);
 bool search(TrieNode* root, const std::string& key);
 void fillVector(TrieNode* root, std::vector<std::string>& result, char buf[], int index);
 std::vector<std::string> getAllWordsByPrefix(TrieNode* root, const std::string& prefix);
