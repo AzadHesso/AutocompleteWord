@@ -35,11 +35,21 @@ int main() {
 			}
 		} while (word.size() > 0);
      
-    std::cout << "Введите слово для удаления из словаря\n (Введите пустую строку для завершения ввода):\n";
+    std::cout << "\nВведите слово для удаления из словаря\n (Введите пустую строку для завершения ввода):\n";
 	do {
 		getline(std::cin, word);
 		if (word.size() > 0) {
 			removeWord(root, word);
+		}
+	} while (word.size() > 0);
+
+	std::cout << "\nНаличие слов в словаре: \n";
+
+	std::cout << "Введите слово для поиска в словаре\n (Введите пустую строку для завершения ввода):\n";
+	do {
+		getline(std::cin, word);
+		if (word.size() > 0) {
+			std::cout << word << ": " << (search(root, word) ? "Такое слово есть" : "Такое слово нет");
 		}
 	} while (word.size() > 0);
 		 
