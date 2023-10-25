@@ -49,10 +49,24 @@ int main() {
 	do {
 		getline(std::cin, word);
 		if (word.size() > 0) {
-			std::cout << word << ": " << (search(root, word) ? "Такое слово есть" : "Такое слово нет");
+			std::cout << word << ": " << (search(root, word) ? "Такое слово есть" : "Такое слово нет") << "\n";
 		}
 	} while (word.size() > 0);
 		 
+	std::string prefix;
+	while (prefix != "q") {
+	      std::cout << "Введите префикс слова для автодопление  (или введите 'q' для выхода): \n";
+		  std::cin >> prefix;
 
+		  if (prefix != "q") {
+			  std::vector<std::string> words = getAllWordsByPrefix(root, prefix);
+			  for (const std::string& word : words) {
+				  std::cout << word << " ";
+			  }
+			  std::cout << std::endl;
+		  }
+	}
+
+	return 0;
 }
 
